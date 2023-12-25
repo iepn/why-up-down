@@ -1,0 +1,8 @@
+node_modules
+/node_modules/**
+.vscode
+.idea
+pnpm-lock.yaml
+/build
+.DS_Store
+.DS_Store?
