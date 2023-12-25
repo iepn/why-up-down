@@ -11,6 +11,7 @@ class ScrollButton {
         this.button.style.cursor = "grab";
         this.button.style.background = "transparent";
         this.button.style.borderStyle = "none";
+        this.button.style.zIndex = "1";
 
         // 创建并设置图片
         const img = document.createElement("img");
@@ -75,6 +76,25 @@ class ScrollButton {
     }
 }
 
-const button1 = new ScrollButton("data:image/svg+xml,%3Csvg width='83' height='83' viewBox='0 0 83 83' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d_39_10)'%3E%3Crect x='20' y='15.6899' width='43' height='43' rx='21.5' fill='white'/%3E%3C/g%3E%3Cpath d='M30.3199 42.18L41.4999 31L52.6799 42.18' stroke='%23C4C4C4' stroke-width='2' stroke-linecap='round'/%3E%3Cdefs%3E%3Cfilter id='filter0_d_39_10' x='0.5' y='0.189941' width='82' height='82' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='4'/%3E%3CfeGaussianBlur stdDeviation='9.75'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.631576 0 0 0 0 0.631576 0 0 0 0 0.631576 0 0 0 0.25 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_39_10'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_39_10' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A", "60%", "top-button");
+const currentTheme = "default"; 
 
-const button2 = new ScrollButton("data:image/svg+xml,%3Csvg width='83' height='83' viewBox='0 0 83 83' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d_39_9)'%3E%3Crect x='63' y='59.3101' width='43' height='43' rx='21.5' transform='rotate(-180 63 59.3101)' fill='white'/%3E%3C/g%3E%3Cpath d='M52.6801 34.0001L41.5001 45.1801L30.3201 34.0001' stroke='%23C4C4C4' stroke-width='2' stroke-linecap='round'/%3E%3Cdefs%3E%3Cfilter id='filter0_d_39_9' x='0.5' y='0.810059' width='82' height='82' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='4'/%3E%3CfeGaussianBlur stdDeviation='9.75'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.631576 0 0 0 0 0.631576 0 0 0 0 0.631576 0 0 0 0.25 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_39_9'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_39_9' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A", "70%", "bottom-button");
+// 创建顶部按钮，传入图片路径和类名
+const buttonTop = new ScrollButton(getImagePath("top-button"), "60%", "top-button");
+
+// 创建底部按钮，传入图片路径和类名
+const buttonBottom = new ScrollButton(getImagePath("bottom-button"), "70%", "bottom-button");
+
+function getImagePath(buttonType) {
+    const imagePathObj = getImagePathObject(); 
+    return imagePathObj[buttonType];
+}
+
+function getImagePathObject() {
+    switch (currentTheme) {
+        case "default":
+            return {
+                "top-button": "data:image/svg+xml,%3Csvg width='83' height='83' viewBox='0 0 83 83' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d_39_10)'%3E%3Crect x='20' y='15.6899' width='43' height='43' rx='21.5' fill='white'/%3E%3C/g%3E%3Cpath d='M30.3199 42.18L41.4999 31L52.6799 42.18' stroke='%23C4C4C4' stroke-width='2' stroke-linecap='round'/%3E%3Cdefs%3E%3Cfilter id='filter0_d_39_10' x='0.5' y='0.189941' width='82' height='82' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='4'/%3E%3CfeGaussianBlur stdDeviation='9.75'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.631576 0 0 0 0 0.631576 0 0 0 0 0.631576 0 0 0 0.25 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_39_10'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_39_10' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A",
+                "bottom-button": "data:image/svg+xml,%3Csvg width='83' height='83' viewBox='0 0 83 83' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d_39_9)'%3E%3Crect x='63' y='59.3101' width='43' height='43' rx='21.5' transform='rotate(-180 63 59.3101)' fill='white'/%3E%3C/g%3E%3Cpath d='M52.6801 34.0001L41.5001 45.1801L30.3201 34.0001' stroke='%23C4C4C4' stroke-width='2' stroke-linecap='round'/%3E%3Cdefs%3E%3Cfilter id='filter0_d_39_9' x='0.5' y='0.810059' width='82' height='82' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeOffset dy='4'/%3E%3CfeGaussianBlur stdDeviation='9.75'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.631576 0 0 0 0 0.631576 0 0 0 0 0.631576 0 0 0 0.25 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_39_9'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_39_9' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A" 
+            };
+    }
+}
