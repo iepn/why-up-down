@@ -1,10 +1,10 @@
 {
-  "name": "Hello Extensions",
-  "description" : "Base Level Extension",
+  "name": "Up or down",
+  "description" : "Why is there no up or down?",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_title": "Hello Extensions",
+    "default_title": "Up or down",
     "default_popup": "index.html"
   },
   "background": {
