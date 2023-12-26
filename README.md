@@ -1,4 +1,7 @@
-# why-up-down
+<img alt="logo" style="float: right;right: 0px" src="https://github.com/iepn/why-up-down/assets/57232813/631c235e-6ea8-4b5e-8724-6d236f57f80d" width="200" div align=right>
+<p></p>
+
+# Why is there no up or down?
 Why is there no up or down?
 
 > [!NOTE] 
@@ -12,6 +15,11 @@ npm start
 
 npm run build
 ```
+
+Run `npm run build` and move the `build` directory to chrome://extensions/
+(p.s: Turn on developer mode!)
+
+`npm run build` 
 
 ## Thank
 [hello-extensions-react](https://github.com/nyqykk/hello-extensions-react) - [@nyqykk](https://github.com/nyqykk)

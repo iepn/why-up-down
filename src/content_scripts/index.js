@@ -16,7 +16,7 @@ class ScrollButton {
         // 创建并设置图片
         const img = document.createElement("img");
         img.src = imageSrc;
-        img.alt = "icon"; // 添加 alt 属性以提高可访问性
+        img.alt = "icon";
         this.button.appendChild(img);
 
         document.body.appendChild(this.button);
