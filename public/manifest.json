@@ -2,6 +2,10 @@
   "name": "Up or down",
   "description" : "Why is there no up or down?",
   "version": "1.0",
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "manifest_version": 3,
   "action": {
     "default_title": "Up or down",

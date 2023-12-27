@@ -1,8 +1,18 @@
+
 class ScrollButton {
     constructor(imageSrc, positionTop, buttonType) {
-        this.text = buttonType; // 保存按钮类型
+        this.text = buttonType; 
         this.button = document.createElement("button");
-        this.button.classList.add(buttonType); // 添加按钮类型的类名
+        this.button.classList.add(buttonType);
+
+        const self = this;
+        // chrome message request function
+        chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+          if (request.message !== undefined) {
+            self.button.style.display = request.message ? "none" : "block";
+          }
+        });
+        
         this.button.style.position = "fixed";
         this.button.style.right = "50px";
         this.button.style.top = positionTop;
@@ -11,7 +21,7 @@ class ScrollButton {
         this.button.style.cursor = "grab";
         this.button.style.background = "transparent";
         this.button.style.borderStyle = "none";
-        this.button.style.zIndex = "1";
+        this.button.style.zIndex = "99999999999999999";
 
         // 创建并设置图片
         const img = document.createElement("img");
@@ -78,10 +88,8 @@ class ScrollButton {
 
 const currentTheme = "default"; 
 
-// 创建顶部按钮，传入图片路径和类名
 const buttonTop = new ScrollButton(getImagePath("top-button"), "60%", "top-button");
 
-// 创建底部按钮，传入图片路径和类名
 const buttonBottom = new ScrollButton(getImagePath("bottom-button"), "70%", "bottom-button");
 
 function getImagePath(buttonType) {
