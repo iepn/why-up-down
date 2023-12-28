@@ -16,7 +16,8 @@ npm start
 npm run build
 ```
 
-Run `npm run build` and move the `build` directory to chrome://extensions/
+Run `npm run build` and move the `build` directory to `chrome://extensions/`
+
 (p.s: Turn on developer mode!)
 
 `npm run build` 
