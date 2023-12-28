@@ -1,4 +1,3 @@
-
 class ScrollButton {
     constructor(imageSrc, positionTop, buttonType) {
         this.text = buttonType; 
@@ -6,13 +5,15 @@ class ScrollButton {
         this.button.classList.add(buttonType);
 
         const self = this;
-        // chrome message request function
-        chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-          if (request.message !== undefined) {
-            self.button.style.display = request.message ? "none" : "block";
-          }
+
+        // 向 background script 发送消息请求按钮状态
+        chrome.runtime.sendMessage({ action: 'getButtonStatus' }, (response) => {
+            // 根据返回的按钮状态设置按钮的显示与隐藏
+            self.button.style.display = response.buttonVisible ? "block" : "none";
         });
         
+        // chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+
         this.button.style.position = "fixed";
         this.button.style.right = "50px";
         this.button.style.top = positionTop;
@@ -23,7 +24,6 @@ class ScrollButton {
         this.button.style.borderStyle = "none";
         this.button.style.zIndex = "99999999999999999";
 
-        // 创建并设置图片
         const img = document.createElement("img");
         img.src = imageSrc;
         img.alt = "icon";

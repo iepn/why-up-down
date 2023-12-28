@@ -6,6 +6,9 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
+  "permissions": [
+    "activeTab"
+  ],
   "manifest_version": 3,
   "action": {
     "default_title": "Up or down",
@@ -16,7 +19,7 @@
   },
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "run_at": "document_idle",
+    "run_at": "document_end",
     "js": ["static/js/content_script.js"]
   }],
   "host_permissions": ["<all_urls>"],
