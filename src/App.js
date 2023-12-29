@@ -34,6 +34,11 @@ function App() {
         <button onClick={toggleButtonStatus}>
           {buttonText}
         </button>
+        <select name="pets" id="pet-select">
+          <option value="default">--Default--</option>
+          <option value="JXLY">JXLY</option>
+          <option value="miku1">Miku-!1</option>
+        </select>
       </div>
   );
 }
