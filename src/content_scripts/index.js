@@ -29,6 +29,7 @@ class ScrollButton {
         this.button.style.background = backgroundStyle;
         this.button.style.borderStyle = "none";
         this.button.style.zIndex = "99999999999999999";
+        this.button.style.width = "auto";
 
         const img = document.createElement("img");
         img.src = imageSrc;
